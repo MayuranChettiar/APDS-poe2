@@ -1,0 +1,70 @@
+POST auth/register:
+
+Request body:
+
+{
+  "name" : "Joelene Peters",
+  "id_number" : "0209115674568",
+  "account_number" : "4453467821",
+  "password" : "JPGreenbug45^"
+}
+
+Response:
+{
+    "message": "User Registration Successful!",
+    "results": {
+        "acknowledged": true,
+        "insertedId": "66fd8a93eda1446b23581a4a"
+    }
+}
+
+
+POST auth/login:
+
+Request body:
+
+{
+  "name" : "Joelene Peters",
+  "account_number" : "4453467821",
+  "password" : "JPGreenbug45^"
+}
+
+Response:
+
+{
+    "message": "Authentication Successful!",
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiSm9lbGVuZSBQZXRlcnMiLCJwYXNzd29yZCI6IkpQR3JlZW5idWc0NV4iLCJpYXQiOjE3Mjc4OTM5MDIsImV4cCI6MTcyNzg5NzUwMn0.npaouy7--fLLfDW4iVUq0_Hzvx7XA_EtyaVaTaZrzm4",
+    "name": "Joelene Peters",
+    "role": "Customer"
+}
+
+
+POST pay/createPayment"
+
+Role: Customer
+Header: key -> Authorization 
+        value -> Bearer <valid token>
+
+Request body:
+
+{
+    "amount": 100,
+    "currency": "USD",
+    "provider": "PayPal",
+    "recipient_name": "John Doe",
+    "recipient_account_number": "123456789",
+    "recipient_bank_name": "Sample Bank",
+    "recipient_bank_branch_code": "98765",
+    "swift_code" : "ABSAUS33XXX",
+    "verified" : false
+}
+
+Response:
+
+{
+    "message": "Payment Successful!",
+    "results": {
+        "acknowledged": true,
+        "insertedId": "66fd9d9b4113b19d93d50e14"
+    }
+}
